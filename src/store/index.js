@@ -27,11 +27,20 @@ const authSlice = createSlice({
       );
     },
     register(state, action) {
-      state.user = action.payload;
+      console.log('login redux happened');
+      state.userEmail = action.payload.email;
+      state.userUid = action.payload.uid;
       state.isLoggedIn = true;
+      localStorage.setItem(
+        localUserKey,
+        JSON.stringify({ email: state.userEmail, uid: state.userUid }),
+      );
     },
     logout(state) {
-      state = initAuthState;
+      state.userEmail = null;
+      state.userUid = null;
+      state.isLoggedIn = false;
+      localStorage.removeItem(localUserKey);
     },
   },
 });

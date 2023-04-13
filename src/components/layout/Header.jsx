@@ -5,6 +5,12 @@ import { useSelector } from 'react-redux';
 
 function Header() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  function logoutFire() {
+    // https://firebase.google.com/docs/auth/web/password-auth#next_steps
+    // redux logout
+  }
+
   return (
     <header>
       <div className="container">
@@ -18,6 +24,11 @@ function Header() {
           {isLoggedIn && (
             <NavLink className="navItem" to={'/profile'}>
               Profile
+            </NavLink>
+          )}
+          {isLoggedIn && (
+            <NavLink className="navItem" to={'/login'}>
+              <button>Logout</button>
             </NavLink>
           )}
           {!isLoggedIn && (
