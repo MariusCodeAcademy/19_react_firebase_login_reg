@@ -2,12 +2,15 @@
 
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-const initAuthState = {
-  userEmail: null,
-  userUid: null,
-  isLoggedIn: false,
-};
+const localUserKey = 'FIRE_USER';
 
+const storageUserDataJson = localStorage.getItem(localUserKey);
+
+const initAuthState = {
+  userEmail: storageUserDataJson ? JSON.parse(storageUserDataJson).email : null,
+  userUid: storageUserDataJson ? JSON.parse(storageUserDataJson).uid : null,
+  isLoggedIn: storageUserDataJson ? true : false,
+};
 // authSlice()
 const authSlice = createSlice({
   name: 'auth',
@@ -18,6 +21,10 @@ const authSlice = createSlice({
       state.userEmail = action.payload.email;
       state.userUid = action.payload.uid;
       state.isLoggedIn = true;
+      localStorage.setItem(
+        localUserKey,
+        JSON.stringify({ email: state.userEmail, uid: state.userUid }),
+      );
     },
     register(state, action) {
       state.user = action.payload;

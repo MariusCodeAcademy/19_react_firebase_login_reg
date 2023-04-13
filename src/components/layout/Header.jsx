@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './header.scss';
+import { useSelector } from 'react-redux';
 
 function Header() {
-  const isLoggedIn = false;
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   return (
     <header>
       <div className="container">
