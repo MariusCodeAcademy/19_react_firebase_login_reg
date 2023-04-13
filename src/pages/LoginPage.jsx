@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import LoginForm from '../components/auth/LoginForm';
 import { auth } from '../firebase/firebase';
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
   function loginUser({ email, password }) {
@@ -23,6 +24,7 @@ function LoginPage() {
     <div className="container">
       <h1>LoginPage</h1>
       <p>This is LoginPage</p>
+      <Link to={'/register'}>Or maybe register?</Link>
 
       <LoginForm onLogin={loginUser} />
     </div>
