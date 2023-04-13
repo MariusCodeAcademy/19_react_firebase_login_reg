@@ -3,11 +3,13 @@ import LoginForm from '../components/auth/LoginForm';
 import { auth } from '../firebase/firebase';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authActions } from '../store';
+import { authActions, uiActions } from '../store';
 
 function LoginPage() {
   const dispatch = useDispatch();
   function loginUser({ email, password }) {
+    // prasideda loading
+    dispatch(uiActions.showLoading());
     console.log('{ email, password } ===', { email, password });
     // email ir password
     signInWithEmailAndPassword(auth, email, password)
@@ -23,11 +25,13 @@ function LoginPage() {
             uid: user.uid,
           }),
         );
+        dispatch(uiActions.showSuccess('User logged in'));
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.warn('login fail', errorMessage);
+        // Todo:  uiActions.showError
       });
   }
   return (

@@ -20,7 +20,7 @@ function ProfilePage() {
   */
 
   return (
-    <div>
+    <div className="container">
       <h1>ProfilePage</h1>
       <p>This is ProfilePage</p>
     </div>

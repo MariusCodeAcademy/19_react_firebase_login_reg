@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './header.scss';
 import { useSelector } from 'react-redux';
+import Logout from '../auth/Logout';
 
 function Header() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -28,7 +29,7 @@ function Header() {
           )}
           {isLoggedIn && (
             <NavLink className="navItem" to={'/login'}>
-              <button>Logout</button>
+              <Logout />
             </NavLink>
           )}
           {!isLoggedIn && (
