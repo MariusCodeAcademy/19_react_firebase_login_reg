@@ -11,8 +11,6 @@ function App() {
   return (
     <div className="">
       <Header />
-      <h2>Env reikme VITE_NAME: {import.meta.env.VITE_NAME}</h2>
-      <h2>Env reikme DB: {import.meta.env.DB}</h2>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
