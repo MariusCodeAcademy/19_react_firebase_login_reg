@@ -3,9 +3,10 @@ import LoginForm from '../components/auth/LoginForm';
 import { auth } from '../firebase/firebase';
 
 function LoginPage() {
-  function loginUser() {
+  function loginUser({ email, password }) {
+    console.log('{ email, password } ===', { email, password });
     // email ir password
-    signInWithEmailAndPassword(auth, 'james@bond.com', '123456')
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -23,7 +24,7 @@ function LoginPage() {
       <h1>LoginPage</h1>
       <p>This is LoginPage</p>
 
-      <LoginForm />
+      <LoginForm onLogin={loginUser} />
     </div>
   );
 }

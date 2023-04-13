@@ -5,7 +5,6 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import Header from './components/layout/Header';
-import { app } from './firebase/firebase';
 
 function App() {
   return (
