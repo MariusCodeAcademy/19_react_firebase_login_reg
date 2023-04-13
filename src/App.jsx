@@ -6,11 +6,15 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import Header from './components/layout/Header';
 import RegisterPage from './pages/RegisterPage';
+import Feedback from './components/ui/feedback/Feedback';
 
 function App() {
   return (
     <div className="">
       <Header />
+      <div className="container">
+        <Feedback />
+      </div>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />

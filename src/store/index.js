@@ -53,15 +53,31 @@ const initUiState = {
   show: false,
   isLoading: false,
 };
+// initUiState = {
+//   msg: 'cia zinute',
+//   type: 'success',
+//   show: true,
+//   isLoading: false,
+// };
 
 const uiSlice = createSlice({
   name: 'ui',
   initialState: initUiState,
   reducers: {
-    showFeedback(state, action) {
-      state.msg = action.payload.msg;
-      state.type = action.payload.type;
+    showSuccess(state, action) {
       state.show = true;
+      state.type = 'success';
+      state.msg = action.payload;
+    },
+    closeAlert(state) {
+      state.msg = '';
+      state.type = '';
+      state.show = false;
+    },
+    showLoading(state) {
+      state.show = true;
+      state.type = 'info';
+      state.msg = 'Loading...';
     },
   },
 });
