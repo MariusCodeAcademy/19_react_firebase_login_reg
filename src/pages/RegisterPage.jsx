@@ -11,7 +11,7 @@ function RegisterPage() {
         // Signed in
         const user = userCredential.user;
         console.log('user ===', user);
-        // ...
+        // ...redux
       })
       .catch((error) => {
         const errorCode = error.code;
