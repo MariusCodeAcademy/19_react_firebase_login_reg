@@ -9,5 +9,6 @@ Reikalavimai:
 3. Komponentas turi turėti mygtuką arba funkciją, kuri leidžia paslėpti pranešimą.
 4. Komponentas turi turėti stiliaus aprašymus, kurie leidžia tinkamai atvaizduoti pranešimo tekstą ir stilių.
 5. Komponentas turi būti eksportuojamas kaip atskiras modulis ir gali būti importuojamas ir naudojamas bet kurioje vietoje projekte.
+6. Su šiuo komponentu prisiloginant atvaizduoti 'loading', 'success' ir 'error' busenas
 
 Galiausiai, yra daugybė būdų, kaip implementuoti šią užduotį, tačiau būtų naudinga naudoti useSelector ir useDispatch hooks, kad pasiektumėte ir atnaujintumėte Redux uiSlice būseną iš komponento.
