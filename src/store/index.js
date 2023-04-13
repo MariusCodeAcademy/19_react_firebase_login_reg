@@ -79,6 +79,7 @@ const uiSlice = createSlice({
       state.type = 'info';
       state.msg = 'Loading...';
     },
+    showError() {},
   },
 });
 

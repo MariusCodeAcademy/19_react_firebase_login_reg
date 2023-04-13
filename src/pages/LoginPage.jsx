@@ -31,7 +31,7 @@ function LoginPage() {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.warn('login fail', errorMessage);
-        // Todo:  uiActions.showError
+        // Todo:  uiActions.showError('something went wrong')
       });
   }
   return (

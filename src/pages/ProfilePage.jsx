@@ -1,6 +1,14 @@
+import { useEffect } from 'react';
+import { auth } from '../firebase/firebase';
+
 function ProfilePage() {
   // sukurti forma atnaujinti userio informacijai displayName photoURL phoneNumber
-
+  const user = auth.currentUser;
+  const email = user?.email;
+  useEffect(() => {
+    // atspausdinamas user objektas kai jis pasikeicia
+    console.log('user ===', user);
+  }, [email, user]);
   /* 
     import { auth } from 'firebase/app';
 

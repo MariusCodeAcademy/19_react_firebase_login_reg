@@ -12,6 +12,7 @@ function RegisterPage() {
         const user = userCredential.user;
         console.log('user ===', user);
         // ...redux
+        // Todo: feedback dispatch
       })
       .catch((error) => {
         const errorCode = error.code;
