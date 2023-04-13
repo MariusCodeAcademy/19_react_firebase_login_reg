@@ -18,7 +18,7 @@ function LoginForm() {
         <label htmlFor="email">Email</label>
         <input
           id="email"
-          type="email"
+          type="text"
           name="email"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}

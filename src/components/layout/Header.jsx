@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import './header.scss';
 
 function Header() {
+  const isLoggedIn = false;
   return (
     <header>
       <div className="container">
@@ -13,12 +14,16 @@ function Header() {
           <NavLink className="navItem" to={'/'}>
             Home page
           </NavLink>
-          <NavLink className="navItem" to={'/login'}>
-            Login
-          </NavLink>
-          <NavLink className="navItem" to={'/profile'}>
-            Profile
-          </NavLink>
+          {isLoggedIn && (
+            <NavLink className="navItem" to={'/profile'}>
+              Profile
+            </NavLink>
+          )}
+          {!isLoggedIn && (
+            <NavLink className="navItem" to={'/login'}>
+              Login
+            </NavLink>
+          )}
         </nav>
       </div>
     </header>

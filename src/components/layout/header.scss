@@ -15,6 +15,9 @@ header {
     padding: 0.7em 1em;
     display: inline-block;
   }
+  .navItem.active {
+    background-color: #858585;
+  }
   .navItem:hover {
     background-color: #858585;
   }

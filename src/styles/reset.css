@@ -43,8 +43,8 @@ a {
 
 /* common rules */
 .container {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
   /* apridboti tik maximalu ploti */
   max-width: 80rem;
   /* skaiciuoti parastes automatiskai vienodai is kaires ir is desines */
