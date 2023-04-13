@@ -11,7 +11,13 @@ function RegisterForm({ onRegister }) {
     onSubmit: (values) => {
       console.log('Form values:', values);
       // jei sutampa slaptazodziai
-      // onRegister()
+      const { password, repeatPassword } = formik.values;
+      if (password === repeatPassword) {
+        onRegister({
+          email: values.email,
+          password,
+        });
+      }
     },
   });
 
