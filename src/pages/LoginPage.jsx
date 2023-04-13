@@ -2,8 +2,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import LoginForm from '../components/auth/LoginForm';
 import { auth } from '../firebase/firebase';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../store';
 
 function LoginPage() {
+  const dispatch = useDispatch();
   function loginUser({ email, password }) {
     console.log('{ email, password } ===', { email, password });
     // email ir password
@@ -13,6 +16,13 @@ function LoginPage() {
         const user = userCredential.user;
         // ...
         console.log('login success');
+        // ivykdyti veiksma reduxe
+        dispatch(
+          authActions.login({
+            email: user.email,
+            uid: user.uid,
+          }),
+        );
       })
       .catch((error) => {
         const errorCode = error.code;

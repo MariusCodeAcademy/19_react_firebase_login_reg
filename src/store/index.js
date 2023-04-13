@@ -3,7 +3,8 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const initAuthState = {
-  user: null,
+  userEmail: null,
+  userUid: null,
   isLoggedIn: false,
 };
 
@@ -13,7 +14,9 @@ const authSlice = createSlice({
   initialState: initAuthState,
   reducers: {
     login(state, action) {
-      state.user = action.payload;
+      console.log('login redux happened');
+      state.userEmail = action.payload.email;
+      state.userUid = action.payload.uid;
       state.isLoggedIn = true;
     },
     register(state, action) {
