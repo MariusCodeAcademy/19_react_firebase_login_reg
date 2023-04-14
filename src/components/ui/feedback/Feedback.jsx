@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './feedback.scss';
 import { uiActions } from '../../../store';
 
 function Feedback() {
-  const { show, type, msg } = useSelector((state) => state.ui);
+  const { show, type, msg, isLoading } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
 
   const handleClose = () => {

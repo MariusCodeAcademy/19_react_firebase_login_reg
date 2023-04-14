@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { auth } from '../firebase/firebase';
+import ProfileForm from '../components/auth/ProfileForm';
+import { updateProfile } from 'firebase/auth';
 
 function ProfilePage() {
   // sukurti forma atnaujinti userio informacijai displayName photoURL phoneNumber
@@ -10,9 +12,6 @@ function ProfilePage() {
     console.log('user ===', user);
   }, [email, user]);
   /* 
-    import { auth } from 'firebase/app';
-
-    // Get the current user
     const user = auth().currentUser;
 
     // Log the user's properties
@@ -27,10 +26,25 @@ function ProfilePage() {
     console.log('Identity Provider ID:', user.providerId);
   */
 
+  function updateFireUser(newValues) {
+    updateProfile(auth.currentUser, newValues)
+      .then(() => {
+        // Profile updated!
+        console.log('updated');
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        console.warn('error', error);
+        // ...
+      });
+  }
+
   return (
     <div className="container">
-      <h1>ProfilePage</h1>
+      <h1>User: {user.displayName} profile</h1>
       <p>This is ProfilePage</p>
+      <ProfileForm user={user} onUpdate={updateFireUser} />
     </div>
   );
 }

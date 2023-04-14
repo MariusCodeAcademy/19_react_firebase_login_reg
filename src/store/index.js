@@ -79,7 +79,11 @@ const uiSlice = createSlice({
       state.type = 'info';
       state.msg = 'Loading...';
     },
-    showError() {},
+    showError(state, action) {
+      state.msg = action.payload;
+      state.type = 'error';
+      state.show = true;
+    },
   },
 });
 

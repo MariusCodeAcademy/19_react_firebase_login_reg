@@ -19,7 +19,10 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route
+          path="/profile"
+          element={!isLoggedIn ? <Navigate to={'/login'} /> : <ProfilePage />}
+        />
         <Route
           path="/login"
           element={isLoggedIn ? <Navigate to={'/profile'} /> : <LoginPage />}
